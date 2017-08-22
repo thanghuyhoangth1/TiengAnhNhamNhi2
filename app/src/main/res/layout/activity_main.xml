@@ -1,0 +1,381 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_play_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cdOpenABox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:elevation="3dp"
+            app:cardBackgroundColor="@color/colorWhite">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+
+                android:text="Mở một ô"
+                android:textColor="#153151"
+
+                />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cdShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:elevation="3dp"
+            app:cardBackgroundColor="@color/colorWhite">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="Chia sẻ"
+                android:textColor="#153151"
+
+                />
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/coin_icon" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtQuestrion"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="SUGAR UP"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAnswer1"
+                android:layout_width="45dp"
+
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="#1677B5" />
+
+            <Button
+                android:id="@+id/btnAnswer2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer3"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer4"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer5"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer6"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer7"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer8"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAnswer9"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/btnAnswer10"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer11"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer12"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer13"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer14"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer15"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+            <Button
+                android:id="@+id/btnAnswer16"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnHint1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint3"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint4"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint5"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint6"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint7"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint8"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnHint9"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint10"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint11"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint12"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint13"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint14"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint15"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+            <Button
+                android:id="@+id/btnHint16"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/tile_hover"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCyan" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
