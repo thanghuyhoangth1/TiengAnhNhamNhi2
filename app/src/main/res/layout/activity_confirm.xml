@@ -1,9 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="hoandeptraicompany.com.tienganhnhamnhi.Activity.ConfirmActivity">
+<!--<LinearLayout android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--xmlns:android="http://schemas.android.com/apk/res/android">--><!--<FrameLayout--><!--android:layout_width="wrap_content"--><!--android:layout_height="match_parent">-->
 
-</android.support.constraint.ConstraintLayout>
+<!--<ImageView--><!--android:layout_width="wrap_content"--><!--android:layout_height="234dp"--><!--android:src="@drawable/dialog"/>--><!--</FrameLayout>--><!--</LinearLayout>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="150dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/dialog2"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtHappy"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:gravity="center"
+        android:text="Chúc mừng bạn nhận được \n 10 coins"
+        android:textColor="#ecb457"
+        android:textSize="20sp" />
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/txtAnswer"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:text="" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/txtExplain"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center" />-->
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/button"
+        android:text="Chiến tiếp"
+        android:textColor="#2a3978"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

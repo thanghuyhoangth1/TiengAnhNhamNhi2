@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TiengAnhNhamNhi</string>
+    <string name="title_activity_flash_screen">FlashScreen</string>
 </resources>

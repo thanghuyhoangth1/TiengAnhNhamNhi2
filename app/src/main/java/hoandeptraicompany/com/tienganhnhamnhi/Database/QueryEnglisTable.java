@@ -1,5 +1,6 @@
 package hoandeptraicompany.com.tienganhnhamnhi.Database;
 
+import android.app.admin.DeviceAdminInfo;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -51,6 +52,11 @@ public class QueryEnglisTable {
         }
 
         return listEnglish;
+
+    }
+
+    public void deleteRowQuestion(EnglishClass question) {
+        database.delete(CreateDatabase.TABLE_ENGLISH,CreateDatabase.TABLE_ENGLISHPRANK_ID+"="+question.getId(),null);
 
     }
 }

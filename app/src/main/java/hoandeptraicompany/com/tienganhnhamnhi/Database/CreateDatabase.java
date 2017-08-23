@@ -19,7 +19,9 @@ import java.io.OutputStream;
 public class CreateDatabase extends SQLiteOpenHelper {
     private Context context;
     public static final String DATABASE_ENGLISHPRANK = "EnglishPrank";
+
     public static final String TABLE_ENGLISHPRANK_VIETNAMESE = "VIETNAMESE";
+    public static final String TABLE_ENGLISH = "ENGLISH";
     public static final String TABLE_ENGLISHPRANK_ENGLISHWORKCOMPLETE = "ENGLISHWORKCOMPLETE";
     public static final String TABLE_ENGLISHPRANK_EXPLAIN = "EXPLAIN";
     public static final String TABLE_ENGLISHPRANK_ID = "ID";

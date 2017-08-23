@@ -1,3 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp45">38dp</dimen>
+    <dimen name="dp40">40dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="sp50">50sp</dimen>
+    <dimen name="dp10">10dp</dimen>
 </resources>
