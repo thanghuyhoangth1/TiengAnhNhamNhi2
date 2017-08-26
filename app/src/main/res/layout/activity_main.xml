@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_weight="1.05"
             android:gravity="center"
-            android:text="Level 1"
+            android:text="Mức 1"
             android:textColor="#ecb457"
             android:textSize="20sp" />
 
@@ -79,7 +79,7 @@
         android:text="SUGAR UP"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <LinearLayout

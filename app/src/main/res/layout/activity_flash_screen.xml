@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
+    android:background="@drawable/backgroundstart"
     android:orientation="vertical">
 
     <TextView
@@ -9,10 +9,18 @@
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,23 +31,39 @@
         android:orientation="vertical">
 
         <Button
+
             android:id="@+id/btnStart"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:background="@drawable/button2"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/button3"
+            android:gravity="center"
+            android:paddingBottom="3dp"
             android:text="Chiến"
             android:textColor="#2a3978"
             android:textSize="30sp" />
 
         <Button
             android:id="@+id/btnClose"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:background="@drawable/button2"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button3"
+            android:gravity="center"
+
+            android:paddingBottom="3dp"
             android:text="Thoát"
             android:textColor="#2a3978"
             android:textSize="30sp" />
 
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1" />
+
+
 </LinearLayout>

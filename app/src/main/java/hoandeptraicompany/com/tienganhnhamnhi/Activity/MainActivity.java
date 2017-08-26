@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtNotifi;
     private String answer = "";
     private int indexQuestion;
+    private MediaPlayer mediaPlayer;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showConfirmActivity() {
+        EnglishClass question = listQuestion.get(level);
 //
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -121,8 +124,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 nextQuestion();
                 dialog.cancel();
+                mediaPlayer.reset();
             }
         });
+        TextView txtDapAn = (TextView) dialog.findViewById(R.id.txtDapAn);
+        TextView txtGiaiThich = (TextView) dialog.findViewById(R.id.txtGiaiThich);
+        setFontForTextView(txtDapAn);
+        setFontForTextView(txtGiaiThich);
+        txtDapAn.setText(question.getEnglishComplete() + "");
+        String string = question.getExplian();
+        int indext = string.indexOf("|");
+        string = string.replace('|', 'I');
+        txtGiaiThich.setText(string);
         dialog.show();
     }
 
@@ -136,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("checklevel", "chayroi");
         Log.d("checklevel", level + "");
-        txtLevel.setText("Level " + level);
+        txtLevel.setText("Mức " + level);
         coin = share.getInt("coin", 250);
         txtCoin.setText(coin + "");
         EnglishClass question = listQuestion.get(level);
@@ -248,9 +261,57 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (coin < 5) {
-                    Toast.makeText(MainActivity.this, "Bạn không đủ coin để mở ô", Toast.LENGTH_SHORT).show();
+                    final Dialog dialog = new Dialog(MainActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.layout_thongbaohettien);
+                    dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    dialog.getWindow().setGravity(Gravity.CENTER);
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    TextView txtThongBao = (TextView) dialog.findViewById(R.id.txtThongBao);
+                    setFontForTextView(txtThongBao);
+                    Button btnDongY = (Button) dialog.findViewById(R.id.btnDongY);
+                    setFontForButton(btnDongY);
+                    btnDongY.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+
+                        }
+                    });
+                    dialog.show();
+
                 } else {
-                    openABox();
+                    final Dialog dialog = new Dialog(MainActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.cofirm_hint_diagloc);
+                    dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    dialog.getWindow().setGravity(Gravity.CENTER);
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    TextView txtThongBao = (TextView) dialog.findViewById(R.id.txtThongBao);
+                    setFontForTextView(txtThongBao);
+                    Button btnDongY = (Button) dialog.findViewById(R.id.btnDongY);
+                    setFontForButton(btnDongY);
+                    btnDongY.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String answer = layCauTraLoi();
+                            if (!checkAnswerComplete(answer)) {
+                                openABox();
+                            }
+                            dialog.cancel();
+                        }
+                    });
+                    Button btnHuy = (Button) dialog.findViewById(R.id.btnHuy);
+                    setFontForButton(btnHuy);
+                    btnHuy.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.cancel();
+                        }
+                    });
+                    dialog.show();
                 }
             }
         });
@@ -267,8 +328,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void openABox() {
         coin = coin - 5;
+        SharedPreferences share = getSharedPreferences("state", MODE_PRIVATE);
+        SharedPreferences.Editor editor = share.edit();
+        editor.putInt("coin", coin);
+        editor.commit();
         txtCoin.setText(coin + "");
-        Log.d("kiemtrachay", "bomaychaynhe");
+
         EnglishClass question = listQuestion.get(level);
         int length = question.getVietnamese().length();
         Random random = new Random();
@@ -281,7 +346,6 @@ public class MainActivity extends AppCompatActivity {
         String dapan = question.getVietnamese();
         for (int i = 0; i < 16; i++) {
             Button button = buttonHintMgr.get(i);
-            Log.d("checkresult", button.getText().toString().trim() + "-" + dapan.charAt(index));
             if (button.getText().toString().trim().equals(dapan.charAt(index) + "")) {
                 buttonAnswerMgr.get(index).setText(button.getText().toString().trim());
                 buttonAnswerMgr.get(index).setHint(i + "");
@@ -291,8 +355,13 @@ public class MainActivity extends AppCompatActivity {
         }
         answer = layCauTraLoi();
         if (checkResult(answer)) {
-            Toast.makeText(MainActivity.this, "Bạn dã trả lời đúng", Toast.LENGTH_SHORT).show();
+            mediaPlayer = MediaPlayer.create(this, R.raw.dung);
+            mediaPlayer.start();
+            coin = coin + 10;
 
+            editor.putInt("coin", coin);
+            editor.commit();
+            txtCoin.setText(coin + "");
             showConfirmActivity();
 
         }
@@ -303,7 +372,12 @@ public class MainActivity extends AppCompatActivity {
         for (int j = 0; j < 15; j++) {
             Button button = buttonAnswerMgr.get(j);
             Log.d("kiemtravisibility", button.getVisibility() + "-" + View.VISIBLE);
+            if (mediaPlayer != null) {
+                mediaPlayer.reset();
+            }
             if ((button.getText().toString().trim().equals("") || button.getText() == null) && button.getVisibility() == View.VISIBLE) {
+                mediaPlayer = MediaPlayer.create(this, R.raw.tiengbanphim);
+                mediaPlayer.start();
                 button.setText(((Button) view).getText().toString());
 
                 if (((Button) view).getText() != null && !((Button) view).getText().toString().equals("")) {
@@ -316,10 +390,12 @@ public class MainActivity extends AppCompatActivity {
                 answer = layCauTraLoi();
                 if (checkResult(answer)) {
                     if (checkAnswerComplete(answer)) {
-                        txtNotifi.setText("Đúng rồi!");
-                        txtNotifi.setVisibility(View.VISIBLE);
+                        mediaPlayer = MediaPlayer.create(this, R.raw.dung);
+                        mediaPlayer.start();
+////                        txtNotifi.setText("Đúng rồi!");
+//                        txtNotifi.setVisibility(View.VISIBLE);
                     }
-                    Toast.makeText(MainActivity.this, "Bạn dã trả lời đúng", Toast.LENGTH_SHORT).show();
+
 //                    nextQuestion();
                     coin = coin + 10;
                     SharedPreferences share = getSharedPreferences("state", MODE_PRIVATE);
@@ -331,9 +407,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
 
                     if (checkAnswerComplete(answer)) {
+                        txtNotifi.setText("Sai rồi!");
+                        if (mediaPlayer != null) {
+                            mediaPlayer.reset();
+                        }
+                        mediaPlayer = MediaPlayer.create(this, R.raw.sai);
+                        mediaPlayer.start();
 
                         for (int k = 0; k < 16; k++) {
-                            txtNotifi.setText("Sai rồi!");
+
                             txtNotifi.setVisibility(View.VISIBLE);
                             buttonAnswerMgr.get(k).setBackgroundResource(R.drawable.button_red);
                             YoYo.with(Techniques.Shake)
@@ -365,7 +447,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences share = getSharedPreferences("state", level);
         SharedPreferences.Editor edit = share.edit();
         edit.putInt("level", level);
-        txtLevel.setText("Level " + level);
+        txtLevel.setText("Mức " + (level + 1));
+
         txtCoin.setText(coin + "");
 //        edit.putInt("index", indexQuestion);
         edit.commit();
